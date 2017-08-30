@@ -1,0 +1,3 @@
+
+mkmain: mkmain.c mkfunc.c
+	gcc -o mkmain mkmain.c mkfunc.c -I.

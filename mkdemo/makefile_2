@@ -1,0 +1,5 @@
+CC=gcc
+CFLAGS=-I.
+
+mkmain: mkmain.o mkfunc.o
+	$(CC) -o mkmain mkmain.o mkfunc.o -I.
