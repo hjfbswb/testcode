@@ -1,0 +1,10 @@
+
+CC=gcc
+CFLAGS=-I.
+DEPS = mkfunc.h
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+mkmain: mkmain.o mkfunc.o
+	gcc -o mkmain mkmain.o mkfunc.o -I.

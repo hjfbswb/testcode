@@ -1,0 +1,27 @@
+
+IDIR=.
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+ODIR=.
+LDIR=.
+
+LIBS=-lm
+
+_DEPS = mkfunc.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = mkmain.o mkfunc.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $(@) $< $(CFLAGS)
+	echo "OBJ:{$(OBJ)}"
+	echo "^:{$^}"
+
+mkmain:	$(OBJ)
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+clean:
+	rm -f $(ODIR)/*.o core mkmain
