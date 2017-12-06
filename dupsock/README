@@ -1,0 +1,3 @@
+本程序是为了测试linux和windows中对句柄的复制功能。
+linux里使用dup。
+windows里使用DuplicateHandle。
